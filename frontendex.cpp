@@ -205,7 +205,7 @@ public:
 
   Function *Codegen();
 };
-} // namespace
+}
 
 static int Current_token;
 static int next_token() { return Current_token = get_tok(); }
@@ -820,10 +820,8 @@ int main(int argc, char *argv[]) {
   legacy::FunctionPassManager OurFPM(Module_Ob);
 
   Module_Ob->setDataLayout(TheExecutionEngine->getDataLayout());
-  //OurFPM.add(createBasicAliasAnalysisPass());
   OurFPM.add(createCostModelAnalysisPass());
   OurFPM.add(createReassociatePass());
-  //OurFPM.add(createGVNPass());
   OurFPM.add(createNewGVNPass());
   OurFPM.add(createCFGSimplificationPass());
 
