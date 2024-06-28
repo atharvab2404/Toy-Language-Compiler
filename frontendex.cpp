@@ -1,3 +1,13 @@
+#include <cctype>
+#include <cstdio>
+#include <map>
+#include <string>
+#include <vector>
+#include <memory>
+#include "llvm/IR/Module.h"
+#include "llvm/IR/Verifier.h"
+#include "llvm/Support/TargetSelect.h"
+#include "llvm/Transforms/Scalar.h"
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/Analysis/Passes.h"
 #include "llvm/ExecutionEngine/ExecutionEngine.h"
@@ -8,16 +18,7 @@
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/LLVMContext.h"
 #include "llvm/IR/LegacyPassManager.h"
-#include "llvm/IR/Module.h"
-#include "llvm/IR/Verifier.h"
-#include "llvm/Support/TargetSelect.h"
-#include "llvm/Transforms/Scalar.h"
-#include <cctype>
-#include <cstdio>
-#include <map>
-#include <string>
-#include <vector>
-#include <memory>
+
 
 using namespace llvm;
 
