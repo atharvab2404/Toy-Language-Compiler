@@ -784,11 +784,11 @@ extern "C" double printd(double X) {
 }
 
 static void init_precedence() {
-  Operator_Precedence['<'] = 10;
-  Operator_Precedence['-'] = 20;
-  Operator_Precedence['+'] = 30;
-  Operator_Precedence['/'] = 40;
-  Operator_Precedence['*'] = 50;
+  Operator_Precedence['<'] = 1;
+  Operator_Precedence['-'] = 2;
+  Operator_Precedence['+'] = 3;
+  Operator_Precedence['/'] = 4;
+  Operator_Precedence['*'] = 5;
 }
 
 int main(int argc, char *argv[]) {
@@ -805,7 +805,7 @@ int main(int argc, char *argv[]) {
   }
   next_token();
 
-  std::unique_ptr<Module> Owner = std::make_unique<Module>("my compiler", Context);
+  std::unique_ptr<Module> Owner = std::make_unique<Module>("compiler_frontend", Context);
   Module_Ob = Owner.get();
 
   std::string ErrStr;
