@@ -14,7 +14,6 @@ link_directories(${LLVM_LIBRARY_DIR})
 list(APPEND CMAKE_MODULE_PATH "${LLVM_CMAKE_DIR}")
 include(AddLLVM)
 
-# Handle RTTI stuff, which often leads to error
 if(NOT ${LLVM_ENABLE_RTTI})
   if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang" OR
       "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU" OR
@@ -25,8 +24,6 @@ if(NOT ${LLVM_ENABLE_RTTI})
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /GR-")
     message(STATUS "Disable RTTI")
   endif()
-  # Do not give any flags for other less widely used
-  # compilers
 endif()
 
 set(_SOURCE_FILES
